@@ -1,0 +1,17 @@
+{
+    "builds": [{
+        "src": "recruitcrm/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": {
+            "maxLambdaSize": "15mb",
+            "runtime": "python3.12",
+            "buildCommand": "bash setup.sh"
+        }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "recruitcrm/wsgi.py"
+        }
+    ]
+}
