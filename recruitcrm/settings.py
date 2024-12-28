@@ -26,7 +26,7 @@ SECRET_KEY = env_config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS=['*',]
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 CSRF_TRUSTED_ORIGINS = ['http://localhost']
 
 
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'recruitcrm.wsgi.application'
+WSGI_APPLICATION = 'recruitcrm.wsgi.app'
 
 
 # Database
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'recruitcrm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env_config("NAME"),
-        'USER': env_config("USER"),
-        'PASSWORD': env_config("PASSWORD"),
-        'HOST': env_config("HOST"),
-        'PORT': env_config("PORT"),
+        'NAME': env_config("DB_NAME"),
+        'USER': env_config("DB_USER"),
+        'PASSWORD': env_config("DB_PASSWORD"),
+        'HOST': env_config("DB_HOST"),
+        'PORT': env_config("DB_PORT"),
     }
 }
 
